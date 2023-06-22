@@ -18,23 +18,23 @@ function verify($token, $dob, $pdo)
         $ERROR = "Invalid Unique Token";
         return $ERROR;
     } else {
-        if ($rows[0][0] == 0) {
+        // if ($rows[0][0] == 0) {
             if ($dob < date('2008-01-01') || $dob > date('1990-01-01')) {
                 return 1;
             } else {
                 $ERROR = "DOB Must be real...";
                 return $ERROR;
             }
-        } else {
-            $ERROR = "Unique Token is already used...!🤨";
-            return $ERROR;
-        }
+        // } else {
+        //     $ERROR = "Unique Token is already used...!🤨";
+        //     return $ERROR;
+        // }
     }
 }
 
 // token and dob is not set then show form to enter token and dob
 if (!(isset($_POST['utkn']) && isset($_POST['dob']))) {
-// a label defining form for token and dob starts from here.
+// a label defining form for token and dob starts from he
     enterUtkn:
 ?>
     <form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -44,6 +44,7 @@ if (!(isset($_POST['utkn']) && isset($_POST['dob']))) {
                     <sub><i class="fas fa-asterisk fa-xs text-danger"></i></sub>
                     UNIQUE Token
                 </label>
+                <span class="text-muted mx-4 rounded border-1 fs-6 p-0"><small>Try this code <code class="text-success">BCAGLTVL</code></small></span>
                 <input type="text" required class="form-control p-2" name="utkn" id="utkn" aria-describedby="helpId" placeholder="BCA1BA01" <?php if (isset($_POST['utkn'])) echo 'value=' . $_POST['utkn']; ?>>
             </div>
         </div>
