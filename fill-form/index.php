@@ -1,11 +1,13 @@
 <?php
-
+// Defining page title
 define('TITLE', "Fill Form...");
+// included header
 include '../assets/layouts/header.php';
 
-
+// pdo connection created.
 $pdo = createPdoConn();
 
+// function that verify whether token and dob are valid or not!
 function verify($token, $dob, $pdo)
 {
     $stmt = "SELECT `used` FROM `tokens` WHERE `token` = '$token';";
@@ -30,8 +32,9 @@ function verify($token, $dob, $pdo)
     }
 }
 
+// token and dob is not set then show form to enter token and dob
 if (!(isset($_POST['utkn']) && isset($_POST['dob']))) {
-
+// a label defining form for token and dob starts from here.
     enterUtkn:
 ?>
     <form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method="post">
