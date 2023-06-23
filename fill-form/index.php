@@ -40,11 +40,11 @@ if (!(isset($_POST['utkn']) && isset($_POST['dob']))) {
     <form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="m-4 p-3 rounded shadow">
             <div class="mb-3">
-                <label for="utkn" class="form-label">
+                <label for="utkn" class="form-label d-inline-block mr-3">
                     <sub><i class="fas fa-asterisk fa-xs text-danger"></i></sub>
                     UNIQUE Token
                 </label>
-                <span class="text-muted mx-4 rounded border-1 fs-6 p-0"><small>Try this code <code class="text-success">BCAGLTVL</code></small></span>
+                <span class="d-inline-block text-muted rounded border-1 fs-6 p-0"><small>Try this code <code class="text-success">BCAGLTVL</code></small></span>
                 <input type="text" required class="form-control p-2" name="utkn" id="utkn" aria-describedby="helpId" placeholder="BCA1BA01" <?php if (isset($_POST['utkn'])) echo 'value=' . $_POST['utkn']; ?>>
             </div>
         </div>
